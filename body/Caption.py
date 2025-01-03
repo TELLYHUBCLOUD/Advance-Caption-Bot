@@ -128,9 +128,11 @@ async def reCap(bot, message):
                 language = extract_language(default_caption)
                 year = extract_year(default_caption)
                 file_name = (
-                    re.sub(r"@\w+\s*", "", file_name)
+                    re.sub(r"@\w+\s*?_", "", file_name)
                     .replace("_", " ")
                     .replace(".", " ")
+                    .replace("[^a-zA-Z0-9]", " ")
+                    
                 )
                 cap_dets = await chnl_ids.find_one({"chnl_id": chnl_id})
                 try:
