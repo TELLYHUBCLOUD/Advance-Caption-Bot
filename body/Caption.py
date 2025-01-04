@@ -128,7 +128,7 @@ async def reCap(bot, message):
                 language = extract_language(default_caption)
                 year = extract_year(default_caption)
                 file_name = (
-                    re.sub(r"@\w+\s*?_", "", file_name)
+                    re.sub(r"@\w+\*?_", "", file_name)
 		            .replace("http[s]?://\S+", "")
                     .replace("_", " ")
                     .replace(".", " ")
